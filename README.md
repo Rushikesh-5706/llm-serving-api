@@ -123,6 +123,12 @@ If an incorrect or missing API key is provided, the API will return:
 This mechanism is used to demonstrate secure API access and is fully configurable by changing the API_KEY value in 
 docker-compose.yml.
 
+### First Request Behavior (Important)
+
+Because the model is loaded lazily, the first `/generate` request may take longer (typically 30–60 seconds) as the Hugging Face model is downloaded and initialized inside the container. This is expected behavior.
+
+Subsequent requests will be fast because the model remains loaded in memory.
+
 ------------------------------------------------------------------------
 
 ## API Endpoints
@@ -236,6 +242,17 @@ requests simultaneously.
 This behavior was tested by sending five parallel requests to the
 `/generate` endpoint, all of which completed successfully without
 crashing the service.
+
+To reproduce this behavior, you can run the following command while the service is running:
+
+    for i in {1..5}; do
+      curl -s -X POST http://localhost:8000/generate \
+        -H "Content-Type: application/json" \
+        -H "x-api-key: supersecretkey" \
+        -d '{"prompt":"Hello","max_new_tokens":10}' &
+
+done
+wait
 
 ------------------------------------------------------------------------
 
