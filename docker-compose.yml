@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  llm_api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - API_KEY=supersecretkey
+      - MODEL_NAME=distilgpt2
+      - MAX_WORKERS=4
