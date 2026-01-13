@@ -158,6 +158,9 @@ Docker container.
 
 ### 2. screenshot_docs.png
 
+
+![Swagger Docs](screenshots/screenshot_docs.png)
+
 This screenshot shows the Swagger UI (`/docs`) provided by FastAPI. It
 lists all available endpoints including `/health` and `/generate`, and
 allows interactive testing of the API. This proves that OpenAPI
@@ -165,12 +168,16 @@ documentation is enabled and the API structure is correctly exposed.
 
 ### 3. screenshot_generate_success.png
 
+![Generate Success](screenshots/screenshot_generate_success.png)
+
 This screenshot shows a successful call to the `/generate` endpoint with
 a valid API key. The request includes a text prompt and the API returns
 generated text from the DistilGPT-2 model. This confirms that the LLM is
 properly loaded and serving responses.
 
 ### 4. screenshot_generate_unauthorized.png
+
+![Unauthorized](screenshots/screenshot_generate_unauthorized.png)
 
 This screenshot shows a request sent to `/generate` using an invalid API
 key. The server responds with a 401 Unauthorized error. This
