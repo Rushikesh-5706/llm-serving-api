@@ -88,7 +88,7 @@ The interactive API documentation (Swagger UI) can be accessed at:
     http://localhost:8000/docs
 
 
-API Key Configuration (Important)
+## API Key Configuration (Important)
 
 This service uses its own API key for authentication.
 It does not use OpenAI or any external API keys.
