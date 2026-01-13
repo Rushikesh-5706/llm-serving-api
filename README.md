@@ -149,6 +149,8 @@ evaluation requirements.
 
 ### 1. screenshot_health.png
 
+![Health Endpoint](screenshots/screenshot_health.png)
+
 This screenshot shows the `/health` endpoint being accessed in the
 browser. It displays a JSON response with `{"status":"ok"}` and an HTTP
 200 status code, confirming that the API is running correctly inside the
