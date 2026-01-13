@@ -87,6 +87,40 @@ The interactive API documentation (Swagger UI) can be accessed at:
 
     http://localhost:8000/docs
 
+
+API Key Configuration (Important)
+
+This service uses its own API key for authentication.
+It does not use OpenAI or any external API keys.
+
+The API key is configured through Docker Compose using an environment variable:
+
+environment:
+  - API_KEY=supersecretkey
+
+
+When the service is started with:
+
+docker compose up
+
+
+the API will require all /generate requests to include this key in the x-api-key HTTP header.
+
+Example request
+curl -X POST http://localhost:8000/generate \
+-H "Content-Type: application/json" \
+-H "x-api-key: supersecretkey" \
+-d '{"prompt":"Hello","max_new_tokens":50}'
+
+
+If an incorrect or missing API key is provided, the API will return:
+
+401 Unauthorized
+{"detail":"Invalid or missing API key"}
+
+
+This mechanism is used to demonstrate secure API access and is fully configurable by changing the API_KEY value in docker-compose.yml.
+
 ------------------------------------------------------------------------
 
 ## API Endpoints
