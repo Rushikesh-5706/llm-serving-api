@@ -31,12 +31,12 @@ using Docker Compose.
 
 This project uses the following technologies:
 
--   Python 3.10\
--   FastAPI for building the REST API\
+-   Python 3.10
+-   FastAPI for building the REST API
 -   Hugging Face Transformers for loading and running the language
-    model\
--   Uvicorn as the ASGI server\
--   Docker and Docker Compose for containerization\
+    model
+-   Uvicorn as the ASGI server
+-   Docker and Docker Compose for containerization
 -   ThreadPoolExecutor and AsyncIO for concurrency control
 
 The model used is **DistilGPT-2**, which is an open-source lightweight
